@@ -1,0 +1,31 @@
+{
+	"name": "@nuogz/aegis",
+	"version": "1.0.0",
+	"description": "web request library baesd on axios",
+	"author": "Nuogz",
+	"license": "LGPL-3.0-or-later",
+	"repository": {
+		"type": "git",
+		"url": "github:nuogz/aegis"
+	},
+	"type": "module",
+	"typesSource": [
+		"browser"
+	],
+	"engines": {
+		"node": ">=14.18.1"
+	},
+	"exports": {
+		".": "./src/index.js"
+	},
+	"files": [
+		"./src/**"
+	],
+	"devDependencies": {
+		"eslint": "^8.22.0"
+	},
+	"dependencies": {
+		"@nuogz/utility": "^1.2.0",
+		"axios": "^0.27.2"
+	}
+}
