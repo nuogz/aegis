@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.1.0 - 2022.08.24 11
+* export default Aegis instance and methods
+* fix `package.main`
+
+
 ## v1.0.0 - 2022.08.24 11
 * restruct by Class
 * support custom alert

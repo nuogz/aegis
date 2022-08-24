@@ -95,3 +95,10 @@ export default class Aegis {
 		window.location.href = `${urlAction}?${paramsParsed.toString()}`;
 	};
 }
+
+
+
+export const aegis = new Aegis();
+export const $get = aegis.$get.bind(aegis);
+export const $post = aegis.$post.bind(aegis);
+export const $jump = aegis.$jump.bind(aegis);
