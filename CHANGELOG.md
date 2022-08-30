@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.1.1 - 2022.08.30 10
+* bump up dependencies
+* fix `package.files`
+
+
 ## v1.1.0 - 2022.08.24 11
 * export default Aegis instance and methods
 * fix `package.main`
