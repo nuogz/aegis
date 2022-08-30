@@ -1,12 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@nuogz/utility': ^1.3.1
+  '@nuogz/utility': ^1.3.2
   axios: ^0.27.2
   eslint: ^8.23.0
 
 dependencies:
-  '@nuogz/utility': 1.3.1
+  '@nuogz/utility': 1.3.2
   axios: 0.27.2
 
 devDependencies:
@@ -76,8 +76,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@nuogz/utility/1.3.1:
-    resolution: {integrity: sha512-n3qPvOo8C05h65bDUt0yyzse+tz3yzrLhDaDmfAsjX+B5c5fR8ouoyxi7DihnnHdHD7ReXEbsaQBPO/ZSSPAMg==}
+  /@nuogz/utility/1.3.2:
+    resolution: {integrity: sha512-XtZrECijDgmy5NjAUu+jU48sS869qPanpKjJ4qwqswQBM/uyfoWlgVn6cqST69zjm+9rlMHkkG6dLXhw8K/61w==}
     engines: {node: '>=14.18.1'}
     dependencies:
       json-bigint: 1.0.0
