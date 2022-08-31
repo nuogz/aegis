@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.1.3 - 2022.08.31 11
+* bump up dependencies
+
+
 ## v1.1.2 - 2022.08.30 11
 * bump up dependencies
 
