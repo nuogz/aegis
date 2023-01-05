@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v1.2.0 - 2023.01.05 17
+* add declaration files
+* bump up `axios` to `1.x`
+* bump up dependencies
+
+
 ## v1.1.3 - 2022.08.31 11
 * bump up dependencies
 

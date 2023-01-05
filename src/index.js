@@ -1,3 +1,27 @@
+/**
+ * @callback GetFunction
+ * @param {string} action
+ * @param {Object} [params]
+ * @param {Object} [config={}]
+ * @returns {Promise<any>}
+ */
+/**
+ * @callback PostFunction
+ * @param {string} action
+ * @param {Object} [params]
+ * @param {Object} [config={}]
+ * @param {boolean} [alertUnSuccess=false]
+ * @returns {Promise<any>}
+ */
+/**
+ * @callback JumpFunction
+ * @param {string} action
+ * @param {Object} [params]
+ * @param {Object} [config={}]
+ * @returns {Promise<void>}
+ */
+
+
 import Axios from 'axios';
 
 import { copyJSON } from '@nuogz/utility';
@@ -7,21 +31,31 @@ import { copyJSON } from '@nuogz/utility';
 export default class Aegis {
 	static alert = (message, title) => window.alert((title ? title + ':\n' : '') + message);
 
-
-
+	/** @type {Function|Aegis.alert} */
 	alert = Aegis.alert;
 	prefixDefault = './api';
 
+	/**
+	 * @param {Function} alert
+	 * @param {string} [prefixDefault]
+	 */
 	constructor(alert, prefixDefault) {
 		if(alert) { this.alert = alert; }
 		if(prefixDefault) { this.prefixDefault = prefixDefault; }
 	}
 
-
+	/**
+	 * @param {string} action
+	 * @param {string} [prefix]
+	 * @returns {string}
+	 */
 	parseURLAction = (action, prefix = this.prefixDefault) => {
 		return `${prefix}${prefix.endsWith('/') ? '' : '/'}${action}`;
 	};
 
+	/**
+	 * @param {Object} result
+	 */
 	parseResult = async result => {
 		if(result.success) {
 			if(result.message && this.alert) { await this.alert(result.message, result.messageTitle); }
@@ -29,11 +63,11 @@ export default class Aegis {
 			return result.data;
 		}
 		else {
-			throw result.message || '请求不成功';
+			throw result.message || 'Request Unsuccessful';
 		}
 	};
 
-
+	/** @type {GetFunction} */
 	$get = async (action, params, config = {}) => {
 		const configRequest = copyJSON(Object.assign({ params }, config));
 
@@ -53,6 +87,7 @@ export default class Aegis {
 		else { return this.parseResult(response.data); }
 	};
 
+	/** @type {PostFunction} */
 	$post = async (action, params, config = {}, alertUnSuccess = false) => {
 		const configRequest = copyJSON(config);
 
@@ -81,6 +116,7 @@ export default class Aegis {
 		else { return this.parseResult(response.data); }
 	};
 
+	/** @type {JumpFunction} */
 	$jump = async (action, params, config = {}) => {
 		const urlAction = this.parseURLAction(action, config.prefix);
 
@@ -99,6 +135,10 @@ export default class Aegis {
 
 
 export const aegis = new Aegis();
+
+/** @type {GetFunction} */
 export const $get = aegis.$get.bind(aegis);
+/** @type {PostFunction} */
 export const $post = aegis.$post.bind(aegis);
+/** @type {JumpFunction} */
 export const $jump = aegis.$jump.bind(aegis);
