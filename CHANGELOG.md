@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v1.3.0 - 2023.03.31 19
+* add new function `$open`
+* update declaration files
+* update description
+* update `jsconfig.json`
+* bump up dependencies
+
+
 ## v1.2.0 - 2023.01.05 17
 * add declaration files
 * bump up `axios` to `1.x`

@@ -1,10 +1,13 @@
 {
 	"compilerOptions": {
 		"module": "ESNext",
-		"moduleResolution": "Node",
+		"moduleResolution": "NodeNext",
 		"target": "ESNext",
 		"experimentalDecorators": true,
-		"strict": true
+		"strict": true,
+		"lib": [
+			"ESNext"
+		]
 	},
 	"exclude": [
 		"node_modules"

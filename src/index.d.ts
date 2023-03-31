@@ -1,12 +1,49 @@
+/**
+ * @typedef {import('axios').AxiosRequestConfig} AxiosRequestConfig
+ */
+/**
+ * @typedef {Object} AegisRequestConfig
+ * @property {string} [prefix]
+ */
+/**
+ * @callback AegisGet
+ * @param {string} action
+ * @param {Object} [params]
+ * @param {AxiosRequestConfig & AegisRequestConfig} [config={}]
+ * @returns {Promise<any|AxiosResponse>}
+ */
+/**
+ * @callback AegisPost
+ * @param {string} action
+ * @param {Object} [params]
+ * @param {AxiosRequestConfig & AegisRequestConfig} [config={}]
+ * @param {boolean} [alertUnSuccess=false]
+ * @returns {Promise<any|AxiosResponse>}
+ */
+/**
+ * @callback AegisJump
+ * @param {string} action
+ * @param {Object} [params]
+ * @param {Object} [config={}]
+ * @returns {Promise<void>}
+ */
+/**
+ * @callback AegisOpen
+ * @param {string} action
+ * @param {Object} [params]
+ * @param {Object} [config={}]
+ * @returns {Promise<void>}
+ */
 export default class Aegis {
-    static alert: (message: any, title: any) => void;
+    static alert: (message: any, title: any) => any;
     /**
      * @param {Function} alert
      * @param {string} [prefixDefault]
      */
     constructor(alert: Function, prefixDefault?: string);
-    /** @type {Function|Aegis.alert} */
-    alert: Function | ((message: any, title: any) => void);
+    /** @type {Function|typeof Aegis.alert} */
+    alert: Function | ((message: any, title: any) => any);
+    /** @type {string} */
     prefixDefault: string;
     /**
      * @param {string} action
@@ -18,20 +55,29 @@ export default class Aegis {
      * @param {Object} result
      */
     parseResult: (result: any) => Promise<any>;
-    /** @type {GetFunction} */
-    $get: GetFunction;
-    /** @type {PostFunction} */
-    $post: PostFunction;
-    /** @type {JumpFunction} */
-    $jump: JumpFunction;
+    /** @type {AegisGet} */
+    $get: AegisGet;
+    /** @type {AegisPost} */
+    $post: AegisPost;
+    /** @type {AegisJump} */
+    $jump: AegisJump;
+    /** @type {AegisOpen} */
+    $open: AegisOpen;
 }
 export const aegis: Aegis;
-/** @type {GetFunction} */
-export const $get: GetFunction;
-/** @type {PostFunction} */
-export const $post: PostFunction;
-/** @type {JumpFunction} */
-export const $jump: JumpFunction;
-export type GetFunction = (action: string, params?: any, config?: any) => Promise<any>;
-export type PostFunction = (action: string, params?: any, config?: any, alertUnSuccess?: boolean) => Promise<any>;
-export type JumpFunction = (action: string, params?: any, config?: any) => Promise<void>;
+/** @type {AegisGet} */
+export const $get: AegisGet;
+/** @type {AegisPost} */
+export const $post: AegisPost;
+/** @type {AegisJump} */
+export const $jump: AegisJump;
+/** @type {AegisOpen} */
+export const $open: AegisOpen;
+export type AxiosRequestConfig = import('axios').AxiosRequestConfig;
+export type AegisRequestConfig = {
+    prefix?: string;
+};
+export type AegisGet = (action: string, params?: any, config?: AxiosRequestConfig & AegisRequestConfig) => Promise<any | AxiosResponse>;
+export type AegisPost = (action: string, params?: any, config?: AxiosRequestConfig & AegisRequestConfig, alertUnSuccess?: boolean) => Promise<any | AxiosResponse>;
+export type AegisJump = (action: string, params?: any, config?: any) => Promise<void>;
+export type AegisOpen = (action: string, params?: any, config?: any) => Promise<void>;
