@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.3.1 - 2023.04.03 16
+* bump up dependencies
+
+
 ## v1.3.0 - 2023.03.31 19
 * add new function `$open`
 * update declaration files

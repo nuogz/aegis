@@ -1,6 +1,6 @@
 {
 	"name": "@nuogz/aegis",
-	"version": "1.3.0",
+	"version": "1.3.1",
 	"description": "HTTP request library for browser and Node.js based on axios",
 	"author": "Nuogz",
 	"license": "LGPL-3.0-or-later",
@@ -28,7 +28,7 @@
 		"typescript": "^4.9.5"
 	},
 	"dependencies": {
-		"@nuogz/utility": "^1.6.3",
+		"@nuogz/utility": "^1.6.4",
 		"axios": "^1.3.4"
 	}
 }
