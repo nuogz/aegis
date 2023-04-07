@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.3.2 - 2023.04.07 11
+* bump up dependencies
+
+
 ## v1.3.1 - 2023.04.03 16
 * bump up dependencies
 
