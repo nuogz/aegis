@@ -2,6 +2,8 @@ import Axios from 'axios';
 
 import { copyJSON } from '@nuogz/utility';
 
+import { T } from './i18n.lib.js';
+
 
 
 /**
@@ -84,7 +86,7 @@ export default class Aegis {
 			return result.data;
 		}
 		else {
-			throw result.message || 'Request Unsuccessful';
+			throw result.message || T('requestUnsuccessful');
 		}
 	};
 

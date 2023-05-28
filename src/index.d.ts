@@ -35,14 +35,14 @@
  * @returns {Promise<void>}
  */
 export default class Aegis {
-    static alert: (message: any, title: any) => any;
+    static alert: (message: any, title: any) => void;
     /**
      * @param {Function} alert
      * @param {string} [prefixDefault]
      */
     constructor(alert: Function, prefixDefault?: string);
     /** @type {Function|typeof Aegis.alert} */
-    alert: Function | ((message: any, title: any) => any);
+    alert: Function | ((message: any, title: any) => void);
     /** @type {string} */
     prefixDefault: string;
     /**

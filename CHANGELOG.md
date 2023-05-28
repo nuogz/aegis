@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v1.4.0 - 2023.05.29 01
+* use library `@nuogz/i18n` for i18n error message
+* bump up dependencies
+	* update `typescript` to `v5.x`, and renew jsdoc
+* use eslint flat config, and related config udpate
+	* use `eslint.config.js` instead `eslintrc.cjs`
+
+
 ## v1.3.2 - 2023.04.07 11
 * bump up dependencies
 
