@@ -1,6 +1,6 @@
 {
 	"name": "@nuogz/aegis",
-	"version": "1.4.1",
+	"version": "1.4.2",
 	"description": "HTTP request library for browser and Node.js based on axios",
 	"author": "Nuogz",
 	"license": "LGPL-3.0-or-later",

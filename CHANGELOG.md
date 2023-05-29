@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.4.2 - 2023.05.29 15
+* fix `locale`
+
+
 ## v1.4.1 - 2023.05.29 08
 * fix `package.json`
 
