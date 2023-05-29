@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.4.1 - 2023.05.29 08
+* fix `package.json`
+
+
 ## v1.4.0 - 2023.05.29 01
 * use library `@nuogz/i18n` for i18n error message
 * bump up dependencies
