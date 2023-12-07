@@ -1,6 +1,6 @@
 {
 	"name": "@nuogz/aegis",
-	"version": "1.4.2",
+	"version": "1.5.0",
 	"description": "HTTP request library for browser and Node.js based on axios",
 	"author": "Nuogz",
 	"license": "LGPL-3.0-or-later",
@@ -8,14 +8,15 @@
 		"type": "git",
 		"url": "github:nuogz/aegis"
 	},
+	"private": false,
 	"type": "module",
 	"typesSource": [
 		"browser"
 	],
+	"sideEffects": false,
 	"engines": {
 		"node": ">=14.18.1"
 	},
-	"sideEffects": false,
 	"main": "./src/index.js",
 	"browser": {
 		"./src/i18n.lib.js": "./src/i18n.js"
@@ -25,16 +26,17 @@
 		"locale/**",
 		"**/*.d.ts"
 	],
+	"typings": "./src/index.d.ts",
 	"scripts": {
 		"emitDeclaration": "tsc ./src/index.js --declaration --emitDeclarationOnly --allowJs --moduleResolution nodenext --module esnext --target esnext --experimentalDecorators"
 	},
-	"devDependencies": {
-		"eslint": "^8.41.0",
-		"typescript": "^5.0.4"
-	},
 	"dependencies": {
-		"@nuogz/i18n": "^3.2.1",
-		"@nuogz/utility": "^1.7.0",
-		"axios": "^1.4.0"
+		"@nuogz/i18n": "^3.3.1",
+		"@nuogz/utility": "^1.8.1",
+		"axios": "^1.6.2"
+	},
+	"devDependencies": {
+		"eslint": "^8.55.0",
+		"typescript": "^5.3.3"
 	}
 }

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.5.0 - 2023.12.07 09
+* tweak enviroment
+* bump up dependencies
+
+
 ## v1.4.2 - 2023.05.29 15
 * fix `locale`
 
