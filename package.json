@@ -2,7 +2,7 @@
 	"name": "@nuogz/aegis",
 	"version": "1.5.0",
 	"description": "HTTP request library for browser and Node.js based on axios",
-	"author": "Nuogz",
+	"author": "DanoR",
 	"license": "LGPL-3.0-or-later",
 	"repository": {
 		"type": "git",
