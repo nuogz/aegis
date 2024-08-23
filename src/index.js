@@ -6,44 +6,12 @@ import { T } from './i18n.lib.js';
 
 
 
-/**
- * @typedef {import('axios').AxiosRequestConfig} AxiosRequestConfig
- */
-/**
- * @typedef {Object} AegisRequestConfig
- * @property {string} [prefix]
- */
-
-
-/**
- * @callback AegisGet
- * @param {string} action
- * @param {Object} [params]
- * @param {AxiosRequestConfig & AegisRequestConfig} [config={}]
- * @returns {Promise<any|AxiosResponse>}
- */
-/**
- * @callback AegisPost
- * @param {string} action
- * @param {Object} [params]
- * @param {AxiosRequestConfig & AegisRequestConfig} [config={}]
- * @param {boolean} [alertUnSuccess=false]
- * @returns {Promise<any|AxiosResponse>}
- */
-/**
- * @callback AegisJump
- * @param {string} action
- * @param {Object} [params]
- * @param {Object} [config={}]
- * @returns {Promise<void>}
- */
-/**
- * @callback AegisOpen
- * @param {string} action
- * @param {Object} [params]
- * @param {Object} [config={}]
- * @returns {Promise<void>}
- */
+/** @typedef {import('axios').AxiosRequestConfig} AxiosRequestConfig */
+/** @typedef {import('../bases.d.ts').AegisRequestConfig} AegisRequestConfig */
+/** @typedef {import('../bases.d.ts').AegisGet} AegisGet */
+/** @typedef {import('../bases.d.ts').AegisPost} AegisPost */
+/** @typedef {import('../bases.d.ts').AegisJump} AegisJump */
+/** @typedef {import('../bases.d.ts').AegisOpen} AegisOpen */
 
 
 
@@ -78,15 +46,24 @@ export default class Aegis {
 
 	/**
 	 * @param {Object} result
+	 * @param {Function} [alert]
+	 * @param {boolean} [willAlertFailedAsync=false]
 	 */
-	parseResult = async result => {
+	parseResult = async (result, alert, willAlertFailedAsync = false) => {
 		if(result.success) {
-			if(result.message && this.alert) { await this.alert(result.message, result.messageTitle); }
+			if(result.message && alert) {
+				if(willAlertFailedAsync) {
+					await alert(result.message, result.messageTitle, result);
+				}
+				else {
+					alert(result.message, result.messageTitle, result);
+				}
+			}
 
 			return result.data;
 		}
 		else {
-			throw result.message || T('requestUnsuccessful');
+			throw result.message || T('request-failed');
 		}
 	};
 
@@ -109,11 +86,11 @@ export default class Aegis {
 
 		if(typeReturn == 'response') { return response; }
 		if(typeReturn == 'raw') { return response.data; }
-		else { return this.parseResult(response.data); }
+		else { return this.parseResult(response.data, config.willAlertFailed ? config.alert ?? this.alert : null, config.willAlertFailedAsync); }
 	};
 
 	/** @type {AegisPost} */
-	$post = async (action, params, config = {}, alertUnSuccess = false) => {
+	$post = async (action, params, config = {}) => {
 		const configRequest = copyJSON(config);
 
 		if(params instanceof FormData) {
@@ -138,7 +115,7 @@ export default class Aegis {
 
 		if(typeReturn == 'response') { return response; }
 		if(typeReturn == 'raw') { return response.data; }
-		else { return this.parseResult(response.data); }
+		else { return this.parseResult(response.data, config.willAlertFailed ? config.alert ?? this.alert : null, config.willAlertFailedAsync); }
 	};
 
 	/** @type {AegisJump} */

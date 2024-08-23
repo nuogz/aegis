@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## v1.6.0 - 2024.08.23 17
+* feat: new config `willAlertFailedAsync`
+* refactor!: move arguments `alertUnsuccess` into `config.willAlertFailed`
+* refactor!: now will pass the full response result into the `Aegis.alert` function as the third argument
+* docs: renew types
+* deps: bump up dependencies
+* chore: renew develop environments
+
+
 ## v1.5.0 - 2023.12.07 09
 * tweak enviroment
 * bump up dependencies

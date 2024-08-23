@@ -9,4 +9,4 @@ import zh from '../locale/zh.json';
 loadI18NResource('@nuogz/aegis', { en, zh });
 
 
-export const T = TT('@nuogz/aegis');
+export const { T, TS } = TT('@nuogz/aegis');
