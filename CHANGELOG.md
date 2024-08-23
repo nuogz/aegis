@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.6.1 - 2024.08.23 22
+* deps: bump up `axios` to `1.7.5`
+
+
 ## v1.6.0 - 2024.08.23 17
 * feat: new config `willAlertFailedAsync`
 * refactor!: move arguments `alertUnsuccess` into `config.willAlertFailed`
